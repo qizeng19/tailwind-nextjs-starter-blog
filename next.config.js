@@ -3,9 +3,10 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 })
 
 // You might need to insert additional domains in script-src if you are using external services
+// script-src 添加域名 可以避免请求外部script的时候跨域错误
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' giscus.app;
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' giscus.app https://cdn.jsdelivr.net;
   style-src 'self' 'unsafe-inline';
   img-src * blob: data:;
   media-src 'none';
@@ -74,12 +75,12 @@ module.exports = withBundleAnalyzer({
 
     if (!dev && !isServer) {
       // Replace React with Preact only in client production build
-      Object.assign(config.resolve.alias, {
-        'react/jsx-runtime.js': 'preact/compat/jsx-runtime',
-        react: 'preact/compat',
-        'react-dom/test-utils': 'preact/test-utils',
-        'react-dom': 'preact/compat',
-      })
+      // Object.assign(config.resolve.alias, {
+      // 'react/jsx-runtime.js': 'preact/compat/jsx-runtime',
+      // react: 'preact/compat',
+      // 'react-dom/test-utils': 'preact/test-utils',
+      // 'react-dom': 'preact/compat',
+      // })
     }
 
     return config
