@@ -69,9 +69,9 @@ const LayoutWrapper = ({ children }) => {
             </div>
             <div className="search-box sm:p-4"></div>
             <DocSearch
-              appId="43GX903BPS"
-              indexName="ts-yayujs"
-              apiKey="feff649032d8034cf2a636ef55d96054"
+              appId="8CDLZW3REJ"
+              indexName="zqblog"
+              apiKey="b23f61a18faed0a9f93158a92d6a7989"
             />
           </div>
         </div>
